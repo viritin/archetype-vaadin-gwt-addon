@@ -24,12 +24,22 @@
             <includes>
                 <include>**/*.java</include>
             </includes>
+            <excludes>
+                <exclude>org/**/*.java</exclude>
+            </excludes>
         </fileSet>
-
+        <fileSet encoding="UTF-8">
+            <directory>src/test/java/org/vaadin/addonhelpers</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/main/resources</directory>
             <includes>
                 <include>**/*.js</include>
+                <include>**/*.gwt.xml</include>
             </includes>
         </fileSet>
 

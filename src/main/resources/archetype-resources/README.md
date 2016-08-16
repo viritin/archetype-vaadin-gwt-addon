@@ -4,9 +4,8 @@
 #set($h4 = '####')
 $h1 Your Vaadin add-on project
 
-This is an add-on project created with in.virit:vaadin-addon archetype.
-The project supports plain server side extensions and JavaScript extensions.
-There are stubbs for server side composition and JavaScript component. Delete the obsolete ones and continue.
+This is an add-on project created with in.virit:vaadin-gwt-addon archetype.
+The project supports GWT based extensions foro Vaadin.
 
 $h2 Usage instructions 
 
@@ -17,6 +16,11 @@ $h2 Usage instructions
   * create browser level and integration tests under src/test/java/
   * Browser level tests are executed manually from IDE (JUnit case) or with Maven profile "browsertests" (mvn verify -Pbrowsertests). The browsertests profile is enabled automatically for release builds
 4. Test also in real world projects, e.g. create a demo project, build a snapshot release ("mvn install") and use the snapshot build in it.
+
+$h2 GWT related stuff
+
+* To recompile test widgetset, issue *mvn vaadin:compile*, if you think the widgetset changes are not picked up by Vaadin plugin, do a *mvn clean package* or try with parameter *mvn vaadin:compile -Dgwt.compiler.force=true*
+* To use superdevmode, issue "mvn vaadin:run-codeserver" and then just open superdevmode like with any other project
 
 $h2 Creating releases
 

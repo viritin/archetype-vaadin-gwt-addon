@@ -43,6 +43,12 @@
             <version>${vaadin.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client</artifactId>
+            <version>${vaadin.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.1</version>
@@ -67,7 +73,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-   <repositories>
+    <repositories>
         <repository>
             <id>vaadin-addons</id>
             <url>http://maven.vaadin.com/vaadin-addons</url>
@@ -75,6 +81,16 @@
     </repositories>
     
     <build>
+        <resources>
+            <resource>
+                <directory>src/resources</directory>
+            </resource>
+            <resource>
+                <!-- GWT hack. This adds sources, .gwt.xml files etc to jar from source directory. 
+                Not quite maven convention but easieast to setup this way. -->
+                <directory>src/main/java</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -130,6 +146,7 @@
                             <!-- Package format version - do not change -->
                             <Vaadin-Package-Version>1</Vaadin-Package-Version>
                             <Vaadin-License-Title>${Vaadin-License-Title}</Vaadin-License-Title>
+                            <Vaadin-Widgetsets>${groupId}.Widgetset</Vaadin-Widgetsets>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -141,6 +158,37 @@
                 <configuration>
                     <releaseProfiles>directorypackage,browsertests</releaseProfiles>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.version}</version>
+                <configuration>
+                    <webappDirectory>${project.build.directory}/testwebapp/VAADIN/widgetsets</webappDirectory>
+                    <extraJvmArgs>-Xmx1024M -Xss512m -XX:MaxPermSize=1024m</extraJvmArgs>
+                    <hostedWebapp>${project.build.directory}/testwebapp</hostedWebapp>
+                    <noServer>true</noServer>
+                    <runTarget>http://localhost:9998/</runTarget>
+                    <draftCompile>true</draftCompile>
+                    <style>PRETTY</style>
+                    <module>${groupId}.Widgetset</module>
+                    <!-- If you do lots of e.g. plain css changes and don't wish to use 
+                    hosted mode, you can force compile easily with uncommenting following rule -->
+                    <!-- <force>true</force> -->
+                    <strict>true</strict>
+           </configuration>
+                <executions>
+                    <execution>
+                        <id>testwidgetset</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skipTests}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
