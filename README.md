@@ -17,3 +17,4 @@ Please do, and post your findings as github issues. Only snapshots are so far re
         -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots/  \
         -DarchetypeVersion=1.0-SNAPSHOT
 
+Then see the README.md from the generated project for more instructions.
