@@ -1,10 +1,10 @@
-package ${groupId};
+package ${package};
 
 import com.vaadin.shared.MouseEventDetails;
 import com.vaadin.ui.AbstractComponent;
-import org.test.client.MyComponentClientRpc;
-import org.test.client.MyComponentServerRpc;
-import org.test.client.MyComponentState;
+import ${package}.client.MyComponentClientRpc;
+import ${package}.client.MyComponentServerRpc;
+import ${package}.client.MyComponentState;
 
 public class MyComponent extends AbstractComponent {
    

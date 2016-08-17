@@ -1,4 +1,4 @@
-package ${groupId}.it;
+package ${package}.it;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.vaadin.addonhelpers.automated.AbstractWebDriverCase;
 import org.vaadin.addonhelpers.automated.VaadinConditions;
 import static org.junit.Assert.*;
 import org.openqa.selenium.WebElement;
-import org.test.BasicMyComponentUsageUI;
+import ${package}.BasicMyComponentUsageUI;
 
 /**
  * A simple example that uses Selenium to do a browser level test for a

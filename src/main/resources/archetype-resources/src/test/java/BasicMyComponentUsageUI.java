@@ -1,4 +1,4 @@
-package ${groupId};
+package ${package};
 
 import com.vaadin.ui.Component;
 import org.vaadin.addonhelpers.AbstractTest;

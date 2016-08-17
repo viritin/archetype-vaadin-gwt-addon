@@ -1,4 +1,4 @@
-package ${groupId}.client;
+package ${package}.client;
 
 import com.vaadin.shared.communication.ClientRpc;
 

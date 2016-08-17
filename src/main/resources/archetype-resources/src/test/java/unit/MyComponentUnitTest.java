@@ -1,8 +1,8 @@
-package ${groupId}.unit;
+package ${package}.unit;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.test.MyComponent;
+import ${package}.MyComponent;
 
 public class MyComponentUnitTest {
 

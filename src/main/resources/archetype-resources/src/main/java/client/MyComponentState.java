@@ -1,4 +1,4 @@
-package ${groupId}.client;
+package ${package}.client;
 
 
 public class MyComponentState extends com.vaadin.shared.AbstractComponentState {
