@@ -104,7 +104,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>${groupId}.*</Export-Package>
+                        <Export-Package>!${package}.client,${package}.*</Export-Package>
+                        <Import-Package>!com.google.gwt.*,!com.vaadin.client.*,*</Import-Package>
                     </instructions>
                 </configuration>
                 <executions>
