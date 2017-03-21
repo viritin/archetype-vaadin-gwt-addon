@@ -8,6 +8,7 @@ import org.vaadin.addonhelpers.automated.AbstractWebDriverCase;
 import org.vaadin.addonhelpers.automated.VaadinConditions;
 import static org.junit.Assert.*;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import ${package}.BasicMyComponentUsageUI;
 
 /**
@@ -46,4 +47,10 @@ public class BasicMyComponentUsageIT extends AbstractWebDriverCase {
         Thread.sleep(1000);
 
     }
+    
+    @Override
+    protected void startBrowser() {
+        startBrowser(new PhantomJSDriver());
+    }
+
 }

@@ -242,6 +242,25 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>com.github.webdriverextensions</groupId>
+                        <artifactId>webdriverextensions-maven-plugin</artifactId>
+                        <version>3.1.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>install-drivers</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <drivers>
+                                <driver>
+                                    <name>phantomjs</name>
+                                </driver>
+                            </drivers>
+                        </configuration>
+                    </plugin>
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <version>2.19.1</version>
